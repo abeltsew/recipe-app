@@ -1,2 +1,19 @@
 <h1>Foods here</h1>
 <%= link_to 'Add Food', '/foods/new'%>
+
+<table>
+<tr>
+<th>Food</th>
+<th>Measurement Unit</th>
+<th>Unit Price</th>
+<th>Actions</th>
+</tr>
+<tr>
+<% @foods.each do |food|  %>
+<td><%= food.name%></td>
+<td><%= food.measurement_unit%></td>
+<td><%= food.price%></td>
+<td><%= link_to "delete", food_path(food.id), :method => :delete %></td>
+<% end %>
+</tr>
+</table>
