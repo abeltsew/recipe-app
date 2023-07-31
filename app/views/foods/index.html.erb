@@ -8,12 +8,14 @@
 <th>Unit Price</th>
 <th>Actions</th>
 </tr>
-<tr>
+<tbody>
 <% @foods.each do |food|  %>
+<tr>
 <td><%= food.name%></td>
 <td><%= food.measurement_unit%></td>
 <td><%= food.price%></td>
 <td><%= link_to "delete", food_path(food.id), :method => :delete %></td>
-<% end %>
 </tr>
+<% end %>
+<tbody>
 </table>
