@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-    before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, except: [:index]
   def index
     @foods = Food.all
   end
@@ -11,7 +11,6 @@ class FoodsController < ApplicationController
   def create
     @food = Food.create(foods_params)
     @food.user_id = current_user.id
-
 
     if @food.save
       redirect_to foods_path
