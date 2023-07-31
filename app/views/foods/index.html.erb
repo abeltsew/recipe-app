@@ -11,7 +11,7 @@
 <tbody>
 <% @foods.each do |food|  %>
 <tr>
-<td><%= link_to "#{food.name}", food_path(food.id) %></td>
+<td><%= link_to "#{food.name}", food_path(food.id) %>(<%= food.quantity%>)</td>
 <td><%= food.measurement_unit%></td>
 <td><%= food.price%></td>
 <td><%= button_to "delete", food_path(food.id), method: :delete %></td>
