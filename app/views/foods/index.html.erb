@@ -11,10 +11,10 @@
 <tbody>
 <% @foods.each do |food|  %>
 <tr>
-<td><%= food.name%></td>
+<td><%= link_to "#{food.name}", food_path(food.id) %></td>
 <td><%= food.measurement_unit%></td>
 <td><%= food.price%></td>
-<td><%= link_to "delete", food_path(food.id), :method => :delete %></td>
+<td><%= button_to "delete", food_path(food.id), method: :delete %></td>
 </tr>
 <% end %>
 <tbody>
