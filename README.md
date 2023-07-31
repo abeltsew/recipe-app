@@ -6,9 +6,9 @@
 
 # 📗 Table of Contents
 
-- [Blog App](#blog-app)
+- [Blog App](#Recipe-app)
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog App ](#-blog-app-)
+- [📖 Blog App ](#-Recipe-app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -27,7 +27,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-**Blog App** is a Rails-built fully functional website that shows lists posts and empowers readers to interact with them by adding comments and liking posts.
+**Blog App** is a Rails-built fully functional website that shows lists of Foods and Recipies to cook foods with them by tracking your expenses.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -39,10 +39,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] **Adding Posts**
-- [ ] **Liking posts**
-- [ ] **Adding comments**
-- [ ] **Deleting commentsri**
+- [ ] **Adding Foods**
+- [ ] **Liking Recipies**
+- [ ] **Generate expense**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,8 +63,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/kwesiObuobi/blog_app.git
-  cd oop-school-library
+  git clone https://github.com/kwesiObuobi/recipe_app.git
+  cd recipe-app
 ```
 
 <!-- ### Install -->
@@ -90,11 +89,11 @@ rails server
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Samuel Kwesi Obuobi Lartey**
+👤 **Ndonyi Maurice Djam**
 
-- GitHub: [@kwesi obuobi](https://github.com/kwesiObuobi)
-- Twitter: [@kwesi_obuobi](https://twitter.com/kwesi_obuobi)
-- LinkedIn: [kwesi-obuobi](https://www.linkedin.com/in/kwesi-obuobi/)
+- GitHub: [@citec-47](https://github.com/citec-47)
+- Twitter: [@Ndonyi4](https://twitter.com/Ndonyi4)
+- LinkedIn: [ndonyi-maurice-b5b49b22b](https://www.linkedin.com/in/ndonyi-maurice-b5b49b22b/)
 
 👤 **Abel Tsegaye**
 
@@ -108,7 +107,7 @@ rails server
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add Web UI**
+- [ ] **Add shoping cart**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
