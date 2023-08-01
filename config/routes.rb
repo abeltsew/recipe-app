@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   get '/shopping_list', to: 'shopping_list#index'
 
   resources :recipies do
-    resources :recipe_foods, only: [:new, :create] do
-    end
+    resources :recipe_foods, only: %i[new create]
   end
   root 'recipies#public_recipies'
 end

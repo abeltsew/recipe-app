@@ -4,7 +4,7 @@
     Amount of food items to buy: <span class="font-bold"><%= @recipe_foods.length %></span>
   </span>
   <span class="text-2xl">
-    Total value of food needed: <span class="font-bold">$<%= @recipe_foods.map {|r| r.food.price.to_i * r.quantity.to_i }.sum %></span>
+    Total value of food needed: <span class="font-bold">$<%= @recipe_foods.map {|r| r.food.price * (r.quantity - r.food.quantity) }.sum %></span>
   </span>
 </div>
 <table class="table-auto w-full max-w-xl mx-auto text-left mb-10 text-lg">
@@ -17,12 +17,12 @@
     </tr>
   </thead>
   <tbody class="bg-gray-300 p-20">
-    <% @recipe_foods.each do |r|%>
+    <% @recipe_foods.each do |recipe|%>
       <tr class="h-16">
-        <td class="p-4"><%= r.food.name %></td>
-        <td class="p-4"><%= r.quantity %> <%= r.food.measurement_unit %></td>
-        <td class="p-4">$<%= r.food.price %></td>
-        <td class="p-4">$<%= r.food.price.to_i * r.quantity.to_i %></td>
+        <td class="p-4"><%= recipe.food.name %> (<%= recipe.food.quantity %>)</td>
+        <td class="p-4"><%= recipe.quantity %> <%= recipe.food.measurement_unit %></td>
+        <td class="p-4">$<%= recipe.food.price %></td>
+        <td class="p-4">$<%= recipe.food.price.to_i * (recipe.quantity - recipe.food.quantity) %></td>
       </tr>
     <% end %>
   </tbody>
