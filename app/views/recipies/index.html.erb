@@ -1,4 +1,5 @@
 <h1>Recipies</h1>
+<%= link_to 'Add Recipe', "/recipies/new" %><br>
 <% if @recipies.length > 0 %>
 <% @recipies.each do |recipe|%>
  <%= link_to "#{recipe.name}", "/recipies/#{recipe.id}" %>
