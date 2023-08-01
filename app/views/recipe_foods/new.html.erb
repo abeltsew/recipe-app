@@ -5,7 +5,7 @@
 <%= form.number_field :quantity %>
 <br>
 <%= form.label :food_id%>
-<%= form.number_field :food_id %>
+<%= form.select :food_id, Food.all.map {|f| [f.name, f.id]} %>
 <br>
 <%= form.submit 'Add' %>
 <% end %>

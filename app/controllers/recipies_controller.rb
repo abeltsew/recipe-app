@@ -11,6 +11,7 @@ class RecipiesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @foods = Foods.where(user_id: current_user.id)
   end
 
   def public_recipies
