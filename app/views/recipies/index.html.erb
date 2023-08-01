@@ -1,7 +1,7 @@
 <h1>Recipies</h1>
 <% if @recipies.length > 0 %>
 <% @recipies.each do |recipe|%>
-    <%= recipe.name%>
+ <%= link_to "#{recipe.name}", "/recipies/#{recipe.id}" %>
     <p><%= recipe.description%><p>
    <%= button_to "delete","/recipies/#{recipe.id}", method: :delete %>
     <% end %>
