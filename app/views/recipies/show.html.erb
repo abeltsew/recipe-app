@@ -5,7 +5,11 @@
 <div class="flex justify-between">
 <p>Preparation time: <%= @recipe.preparation_time%></p>
 <div class="self-end">
-Public
+ <% if @recipe.public %>
+          <span class="text-green-500 p-2 px-4">Public</span>
+          <% else %>
+            <span class="text-red-500 p-2 px-4">Private</span>
+            <% end %>
 </div>
 </div>
 <p>Cooking time: <%= @recipe.cooking_time%></p>
@@ -31,7 +35,7 @@ Public
         <td class="p-4 text-blue-400 underline"><%= link_to "#{food.name}", food_path(food.id) %></td>
         <td class="p-4"><%= food.recipe_foods.select {|recipe| recipe.food_id == food.id}[0].quantity%> <%= food.measurement_unit%></td>
         <td class="p-4">$<%= food.price%></td>
-        <td class="p-4"><%= button_to "delete", food_path(food.id), method: :delete, class: 'text-red-400 underline hover:pointer-cursor' %></td>
+        <td class="p-4"><%= button_to "Remove", recipy_recipe_food_path(@recipe.id, food.id), method: :delete, class: 'text-red-400 underline hover:pointer-cursor' %></td>
       </tr>
     <% end %>
   </tbody>

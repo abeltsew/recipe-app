@@ -14,6 +14,15 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = RecipeFood.find_by(food_id: params[:id], recipe_id: params[:recipy_id])
+    if @recipe.destroy
+      redirect_to(request.referrer || root_path)
+    else
+      flash[:error] = 'error'
+    end
+  end
+
   private
 
   def recipe_food_parms
