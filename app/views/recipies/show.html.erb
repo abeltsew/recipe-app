@@ -3,4 +3,6 @@
 <p>Cooking time: <%= @recipe.cooking_time%></p>
 <p>Description: <%= @recipe.description%></p>
 
+<%= link_to 'Add ingridient', "/recipies/#{@recipe.id}/recipe_foods/new" %>
+
 <%= render '/shared/foods', foods: @foods%>

@@ -9,6 +9,10 @@ class RecipiesController < ApplicationController
     @foods = Food.joins(:recipe_foods).where(recipe_foods: { recipe_id: @recipe.id })
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+
   def public_recipies
     @public = Recipe.where(public: true).order('created_at DESC')
   end

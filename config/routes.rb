@@ -9,5 +9,10 @@ Rails.application.routes.draw do
 
   get '/public_recipies', to: 'recipies#public_recipies'
   get '/shopping_list', to: 'shopping_list#index'
+
+  resources :recipies do
+    resources :recipe_foods, only: [:new, :create] do
+    end
+  end
   root 'recipies#public_recipies'
 end
