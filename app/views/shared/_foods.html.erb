@@ -2,7 +2,7 @@
   <thead class="bg-gray-400">
     <tr class="h-10">
       <th class="p-4">Food</th>
-      <th class="p-4">Measurement Unit</th>
+      <th class="p-4">Quantity</th>
       <th class="p-4">Unit Price</th>
       <th class="p-4">Actions</th>
     </tr>
@@ -11,7 +11,7 @@
     <% @foods.each do |food|  %>
       <tr class="h-16">
         <td class="p-4 text-blue-400 underline"><%= link_to "#{food.name}", food_path(food.id) %>(<%= food.quantity%>)</td>
-        <td class="p-4"><%= food.measurement_unit%></td>
+        <td class="p-4"><%= food.quantity%> <%= food.measurement_unit%></td>
         <td class="p-4">$<%= food.price%></td>
         <td class="p-4"><%= button_to "delete", food_path(food.id), method: :delete, class: 'text-red-400 underline hover:pointer-cursor' %></td>
       </tr>

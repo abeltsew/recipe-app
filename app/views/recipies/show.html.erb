@@ -16,4 +16,23 @@ Public
 <span class="border-2 border-black p-2 m-2"><%= link_to 'Add ingridient', "/recipies/#{@recipe.id}/recipe_foods/new" %></span>
 </div>
 </div>
-<%= render '/shared/foods', foods: @foods%>
+<table class="table-auto w-full max-w-xl mx-auto text-left mb-10 text-lg">
+  <thead class="bg-gray-400">
+    <tr class="h-10">
+      <th class="p-4">Food</th>
+      <th class="p-4">Quantity</th>
+      <th class="p-4">Unit Price</th>
+      <th class="p-4">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="bg-gray-300 p-20">
+    <% @foods.each do |food|  %>
+      <tr class="h-16">
+        <td class="p-4 text-blue-400 underline"><%= link_to "#{food.name}", food_path(food.id) %></td>
+        <td class="p-4"><%= food.recipe_foods.select {|recipe| recipe.food_id == food.id}[0].quantity%> <%= food.measurement_unit%></td>
+        <td class="p-4">$<%= food.price%></td>
+        <td class="p-4"><%= button_to "delete", food_path(food.id), method: :delete, class: 'text-red-400 underline hover:pointer-cursor' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
