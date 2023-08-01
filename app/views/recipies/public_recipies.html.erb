@@ -1,0 +1,17 @@
+<h1>Public Recipies</h1>
+
+<% if @public.length > 0 %>
+<% @public.each do |recipe|%>
+    <%= recipe.name%>
+    <p>by: <%= recipe.user.name%><p>
+    <p>Total food Items: <%= recipe.recipe_foods.length %> </p>
+    
+    <% total = 0 %>
+        <% recipe.recipe_foods.each do |food| %>
+        <% total += food.food.price %>
+        <% end %>
+        <p>Total price: $<%= total %> </p>
+    <% end %>
+<% else %>
+    <h1> No Public Recipies</h1>
+<% end %>
