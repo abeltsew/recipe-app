@@ -1,0 +1,32 @@
+<h1>Generated List</h1>
+
+<% if @foods.length > 0 %>
+<h2>Amount of food items to buy: <%= @foods.length%></h2>
+
+ <% total = 0 %>
+ <% @foods.each do |food| %>
+ <% total += food.price %>
+ <% end %>
+<p>Total value of food needed: $<%= total %> </p>
+
+<table>
+<tr>
+<th>Food</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+</tr>
+<tbody>
+<% @foods.each do |food|  %>
+<tr>
+<td><%= link_to "#{food.name}", food_path(food.id) %>(<%= food.quantity%>)</td>
+<td><%= food.quantity%></td>
+<td><%= food.price%></td>
+</tr>
+<% end %>
+<tbody>
+</table>
+
+<% else %>
+<h1>No shoping needed</h1>
+<% end %>
+
