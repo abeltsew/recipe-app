@@ -36,6 +36,7 @@ class RecipiesController < ApplicationController
       redirect_to recipies_path, alert: 'There was an error deleting the Recipe.'
     end
   end
+
   private
 
   def recipe_params
