@@ -1,8 +1,9 @@
 class RecipiesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :public_recipies]
+  before_action :authenticate_user!, except: %i[index public_recipies]
   def index
     @recipies = Recipe.where(user_id: current_user.id)
   end
+
   def show
     @recipe = Recipe.find_by_id(params[:id])
   end
