@@ -15,27 +15,39 @@
 <p>Cooking time: <%= @recipe.cooking_time%></p>
 <p><%= @recipe.description%></p>
 </div>
+<% if current_user.id == @recipe.user.id%>
 <div class="flex justify-between w-1/2">
 <span class="border-2 border-black p-2 m-2"><%= link_to "Generate Shopping List", shopping_list_path %></span>
 <span class="border-2 border-black p-2 m-2"><%= link_to 'Add ingridient', "/recipies/#{@recipe.id}/recipe_foods/new" %></span>
 </div>
+<% end %>
 </div>
-<table class="table-auto w-full max-w-xl mx-auto text-left mb-10 text-lg">
+<table class="w-full max-w-xl mx-auto text-left mb-10 text-lg">
   <thead class="bg-gray-400">
     <tr class="h-10">
       <th class="p-4">Food</th>
       <th class="p-4">Quantity</th>
       <th class="p-4">Unit Price</th>
+      <% if current_user.id == @recipe.user.id%>
       <th class="p-4">Actions</th>
+      <% end %>
     </tr>
   </thead>
   <tbody class="bg-gray-300 p-20">
-    <% @foods.each do |food|  %>
-      <tr class="h-16">
+    <% @foods.each_with_index do |food, index|  %>
+      <% if index.even?  %>
+      <tr class='bg-gray-200 h-16'>
+      <%else%>
+      <tr class='bg-gray-300 h-16'>
+      <%end%>
         <td class="p-4 text-blue-400 underline"><%= link_to "#{food.name}", food_path(food.id) %></td>
         <td class="p-4"><%= food.recipe_foods.select {|recipe| recipe.food_id == food.id}[0].quantity%> <%= food.measurement_unit%></td>
         <td class="p-4">$<%= food.price%></td>
-        <td class="p-4"><%= button_to "Remove", recipy_recipe_food_path(@recipe.id, food.id), method: :delete, class: 'text-red-400 underline hover:pointer-cursor' %></td>
+        <% if current_user.id == @recipe.user.id%>
+        <td class="p-4">
+            <%= button_to "Remove", recipy_recipe_food_path(@recipe.id, food.id), method: :delete, class: 'text-red-400 underline hover:pointer-cursor' %>
+        </td> 
+        <% end %>
       </tr>
     <% end %>
   </tbody>
