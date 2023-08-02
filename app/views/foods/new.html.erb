@@ -1,4 +1,4 @@
-<h1>New Form for Food</h1>
+
 <% if @food.errors.any? %>
   <div class="post-errors-box">
     <p><%= pluralize(@food.errors.count, "error") %> found:</p>
@@ -10,17 +10,18 @@
     </ul>
 <% end %>
 
+
 <%= form_with path: new_food_path, model: @food, method: :post do |form| %>
+<div class="flex flex-col justify-center items-center gap-2 w-full h-full">
+<h1 class="text-3xl text-bold pt-6">New Form for Food</h1>
 <%= form.label :name%>
 <%= form.text_field :name%>
-<br>
 <%= form.label :measurement_unit%>
 <%= form.text_field :measurement_unit%>
-<br>
 <%= form.label :price%>
 <%= form.text_field :price%>
-<br>
 <%= form.label :quantity%>
 <%= form.number_field :quantity%>
-<%= form.submit %>
+<span class="border-2 border-black p-2"><%= form.submit%></span>
+</div>
 <% end %>

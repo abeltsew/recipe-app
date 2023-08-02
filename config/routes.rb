@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   get '/public_recipies', to: 'recipies#public_recipies'
+  get '/shopping_list', to: 'shopping_list#index'
+
+  resources :recipies do
+    resources :recipe_foods, only: %i[new create destroy]
+  end
   root 'recipies#public_recipies'
 end
