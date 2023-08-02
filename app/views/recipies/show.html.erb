@@ -6,10 +6,10 @@
 <p>Preparation time: <%= @recipe.preparation_time%></p>
 <div class="self-end">
  <% if @recipe.public %>
-          <span class="text-green-500 p-2 px-4">Public</span>
-          <% else %>
-            <span class="text-red-500 p-2 px-4">Private</span>
-            <% end %>
+    <span class="text-green-500 p-2 px-4">Public</span>
+<% else %>
+     <span class="text-red-500 p-2 px-4">Private</span>
+<% end %>
 </div>
 </div>
 <p>Cooking time: <%= @recipe.cooking_time%></p>
