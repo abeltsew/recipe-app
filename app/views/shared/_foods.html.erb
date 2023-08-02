@@ -1,4 +1,4 @@
-<table class="table-auto w-full max-w-xl mx-auto text-left mb-10 text-lg">
+<table class="w-full max-w-xl mx-auto text-left mb-10 text-lg">
   <thead class="bg-gray-400">
     <tr class="h-10">
       <th class="p-4">Food</th>
@@ -8,8 +8,12 @@
     </tr>
   </thead>
   <tbody class="bg-gray-300 p-20">
-    <% @foods.each do |food|  %>
-      <tr class="h-16">
+    <% @foods.each_with_index do |food, index|  %>
+     <% if index.even?  %>
+      <tr class='bg-gray-200 h-16'>
+      <%else%>
+      <tr class='bg-gray-300 h-16'>
+      <%end%>
         <td class="p-4 text-blue-400 underline"><%= link_to "#{food.name}", food_path(food.id) %>(<%= food.quantity%>)</td>
         <td class="p-4"><%= food.quantity%> <%= food.measurement_unit%></td>
         <td class="p-4">$<%= food.price%></td>
