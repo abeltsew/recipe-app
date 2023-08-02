@@ -24,7 +24,7 @@ class RecipiesController < ApplicationController
   end
 
   def public_recipies
-    @public = Recipe.where(public: true).order('created_at DESC')
+    @public = Recipe.where(public: true).includes([:user]).includes([:recipe_foods]).order('created_at DESC')
   end
 
   def destroy
