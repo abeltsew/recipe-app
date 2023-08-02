@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :recipies do
     resources :recipe_foods, only: %i[new create destroy]
   end
+  get '/toogle/:id', to: 'recipies#toogle'
   root 'recipies#public_recipies'
 end

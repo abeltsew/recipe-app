@@ -37,6 +37,16 @@ class RecipiesController < ApplicationController
     end
   end
 
+  def toogle
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.public = !@recipe.public
+    if @recipe.save
+      redirect_to(request.referrer || root_path)
+    else
+      flash[:error] = 'Error updating recipe'
+    end
+  end
+
   private
 
   def recipe_params
